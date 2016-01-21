@@ -16,36 +16,23 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
   String coWord = new String();
-  for(int i = 0; i < word.length(); i++) // checks specialties
+  for(int i = 0; i < word.length(); i++)
   {
-    if (word.charAt(i) != ' ' || // checks for spaces
-        Character.isLetter(word.charAt(i)) || // checks for special characters
-        /* TO BE CONTINUED */)
+    if (Character.isLetter(word.charAt(i)) ) // checks for nonalpha (including spaces)
       coWord += word.charAt(i);
   }  
+
+  // String nuWord = coWord.toLowerCase(); // converts word to lowercase. no need. checked below.
 
   int j = coWord.length()-1;
   for (int i = 0; i < coWord.length(); i++) // checks the word fwd and bwd
   {
-    if(coWord.charAt(i) == coWord.charAt(j))
+    if(coWord.toLowerCase().charAt(i) == coWord.toLowerCase().charAt(j)) // converts and checks lowercases
       j--;
     if(j == 0)
       return true;
   }
   return false;
-
-  /*
-  public String noSpaces(String sWord){
-  String newString = new String();
-  for(int i = 0; i < sWord.length(); i++)
-  {
-    if (sWord.charAt(i) != ' ')
-      newString += sWord.charAt(i);
-  }
-  return newString;
-}
-  */
 }
 
